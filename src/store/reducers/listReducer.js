@@ -23,7 +23,9 @@ const listReducer = (state = initialState, action) => {
     case actionTypes.ADD_LIST:
       console.log('created List', action.list);
       return state;
-
+    case actionTypes.ADD_ITEM:
+      console.log('Added item', action);
+      return state;
     default:
       return state;
   }
