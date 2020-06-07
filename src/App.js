@@ -1,25 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import 'fontsource-roboto';
+import Navbar from './components/layout/Navbar';
+import Dashboard from './components/board/Dashboard';
+import CreatList from './components/lists/CreatList';
+import List from './components/lists/List';
+import LogIn from './components/auth/LogIn';
+import SignUp from './components/auth/SignUp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Dashboard} />
+        <Route path="/list/:id" component={List} />
+        <Route path="/login" component={LogIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/create" component={CreatList} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
