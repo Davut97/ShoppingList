@@ -26,6 +26,9 @@ const listReducer = (state = initialState, action) => {
     case actionTypes.ADD_ITEM:
       console.log('Added item', action);
       return state;
+    case actionTypes.REMOVE_ITEM:
+      console.log('item removed', action);
+      return state;
     default:
       return state;
   }

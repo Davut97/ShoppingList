@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createList } from '../../store/actions/listActions';
 
 const CreatList = (props) => {
-  console.log(props);
+  // console.log(props);
   const [title, setTitle] = useState('');
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -12,7 +12,7 @@ const CreatList = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(title);
+    // console.log(title);
     props.createList({ title: title });
   };
   return (

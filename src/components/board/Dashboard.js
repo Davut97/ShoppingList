@@ -12,7 +12,7 @@ const Dashboard = ({ lists }) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     lists: state.firestore.ordered.lists,
   };
