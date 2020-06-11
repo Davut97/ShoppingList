@@ -5,16 +5,23 @@ import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 
 const Dashboard = ({ lists }) => {
-  return (
-    <div>
-      <AllLists lists={lists} />
-    </div>
-  );
+	if (lists) {
+		return (
+			<div>
+				<AllLists lists={lists} />
+			</div>
+		);
+	} else {
+		return <p>loading...</p>;
+	}
 };
-const mapStateToProps = (state) => {
-  // console.log(state);
-  return {
-    lists: state.firestore.ordered.lists,
-  };
+const mapStateToProps = state => {
+	// console.log(state);
+	return {
+		lists: state.firestore.ordered.lists,
+	};
 };
-export default compose(connect(mapStateToProps), firestoreConnect([{ collection: 'lists' }]))(Dashboard);
+export default compose(
+	connect(mapStateToProps),
+	firestoreConnect(() => ['lists'])
+)(Dashboard);
