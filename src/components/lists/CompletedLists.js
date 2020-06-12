@@ -2,11 +2,13 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { Link } from 'react-router-dom';
 import Lists from './Lists';
+import { Link, Redirect } from 'react-router-dom';
 
-const CompletedLists = ({ CompletedLists }) => {
+const CompletedLists = ({ CompletedLists, auth }) => {
 	// console.log(CompletedLists);
+	if (!auth.uid) return <Redirect to='/signin' />;
+
 	return (
 		<div>
 			{CompletedLists &&
@@ -27,6 +29,7 @@ const mapStateToProps = state => {
 	// console.log(state);
 	return {
 		CompletedLists: state.firestore.ordered.CompletedLists,
+		auth: state.firebase.auth,
 	};
 };
 

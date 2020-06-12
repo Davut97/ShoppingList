@@ -4,9 +4,11 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { addItem, deleteItem, editItem } from '../../store/actions/listActions';
 import Items from './Items';
+import { Redirect } from 'react-router-dom';
+
 const List = props => {
 	// console.log(props.list); // to see match.params.id
-	const { list, items } = props;
+	const { list, items, auth } = props;
 	console.log(props);
 
 	const id = props.match.params.id;
@@ -46,7 +48,8 @@ const List = props => {
 	useEffect(() => {
 		setFetchedItems(items);
 	}, [items]);
-	if (list) {
+
+	if (auth.uid) {
 		return (
 			<div>
 				<span>
@@ -82,7 +85,7 @@ const List = props => {
 			</div>
 		);
 	} else {
-		return <p>Loading...</p>;
+		return <Redirect to='/signin' />;
 	}
 };
 const mapStateToProps = (state, ownProps) => {

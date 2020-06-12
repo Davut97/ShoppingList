@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { signUp } from '../../store/actions/authActions';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 const SignUp = props => {
 	const [email, setEmail] = useState('');
@@ -20,8 +23,10 @@ const SignUp = props => {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		console.log(email, password, firstName, lastName);
+		props.OnSignUp({ email, password, firstName, lastName });
 	};
+	const { auth, authError } = props;
+	if (auth.uid) return <Redirect to='/' />;
 
 	return (
 		<div>
@@ -50,9 +55,20 @@ const SignUp = props => {
 				<div>
 					<button>Sign Up</button>
 				</div>
+				<div>{authError ? <p>{authError}</p> : null}</div>
 			</form>
 		</div>
 	);
 };
-
-export default SignUp;
+const mapStateToProps = state => {
+	return {
+		auth: state.firebase.auth,
+		authError: state.auth.authError,
+	};
+};
+const mapDispatchToProps = dispatch => {
+	return {
+		OnSignUp: newUser => dispatch(signUp(newUser)),
+	};
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { createList } from '../../store/actions/listActions';
+import { Redirect } from 'react-router-dom';
 
 const CreatList = props => {
 	// console.log(props);
@@ -9,6 +10,8 @@ const CreatList = props => {
 	const handleChangeTitle = event => {
 		setTitle(event.target.value);
 	};
+	const { auth } = props;
+
 	console.log(props);
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -16,6 +19,8 @@ const CreatList = props => {
 		props.createList({ title: title });
 		props.history.push('/');
 	};
+	if (!auth.uid) return <Redirect to='/signin' />;
+
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
@@ -32,10 +37,15 @@ const CreatList = props => {
 		</div>
 	);
 };
-
+const mapStateToProps = state => {
+	console.log(state);
+	return {
+		auth: state.firebase.auth,
+	};
+};
 const mapDispatchToProps = dispatch => {
 	return {
 		createList: list => dispatch(createList(list)),
 	};
 };
-export default connect(null, mapDispatchToProps)(CreatList);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatList);

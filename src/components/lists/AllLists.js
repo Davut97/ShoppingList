@@ -1,6 +1,6 @@
 import React from 'react';
 import Lists from './Lists';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import {
 	createCompletedList,
 	addItemToCompletedLists,
@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 
 const AllLists = props => {
 	// console.log(props);
-	const { lists } = props;
+	const { lists, auth } = props;
 	const handleToggleComplete = (list, items) => {
 		const { id, title } = list;
 		// console.log(title, id);
@@ -24,6 +24,8 @@ const AllLists = props => {
 			});
 		props.deleteDoc(id);
 	};
+	if (!auth.uid) return <Redirect to='/signin' />;
+
 	return (
 		<div>
 			{lists &&
@@ -54,7 +56,13 @@ const mapDispatchToProps = dispatch => {
 		deleteDoc: items => dispatch(deleteDoc(items)),
 	};
 };
+const mapStateToProps = state => {
+	console.log(state);
+	return {
+		auth: state.firebase.auth,
+	};
+};
 export default compose(
 	firestoreConnect(() => ['CompletedLists']),
-	connect(null, mapDispatchToProps)
+	connect(mapStateToProps, mapDispatchToProps)
 )(AllLists);
