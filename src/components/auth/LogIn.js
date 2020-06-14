@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { signIn } from '../../store/actions/authActions';
 import { connect } from 'react-redux';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
 
 const LogIn = props => {
 	const [email, setEmail] = useState('');
@@ -18,27 +19,44 @@ const LogIn = props => {
 		props.onSignIn({ email, password });
 	};
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<h5>Log In</h5>
-				<div>
-					<label>Email</label>
-					<input type='email' id='email' onChange={handleEmail} />
-				</div>
-				<div>
-					<label>Password</label>
-					<input type='password' id='password' onChange={handlePassword} />
-				</div>
-				<div>
-					<button>Log in</button>
-				</div>
-				<div>{props.authError ? <p>{props.authError}</p> : null}</div>
-			</form>
-		</div>
+		<MDBContainer>
+			<MDBRow>
+				<MDBCol md='6'>
+					<form>
+						<p className='h5 text-center mb-4'>Log In</p>
+						<div className='grey-text'>
+							<MDBInput
+								label='Type your email'
+								icon='envelope'
+								group
+								type='email'
+								validate
+								error='wrong'
+								success='right'
+								onChange={handleEmail}
+							/>
+							<MDBInput
+								label='Type your password'
+								icon='lock'
+								group
+								type='password'
+								validate
+								onChange={handlePassword}
+							/>
+						</div>
+						<div className='text-center'>
+							<MDBBtn onClick={handleSubmit}>Login</MDBBtn>
+							<div>{props.authError ? <p>{props.authError}</p> : null}</div>
+						</div>
+					</form>
+				</MDBCol>
+			</MDBRow>
+		</MDBContainer>
 	);
 };
 
 const mapStateToProps = state => {
+	console.log(state);
 	return {
 		authError: state.auth.authError,
 		auth: state.firebase.auth,
@@ -51,3 +69,25 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+
+// const FormPage = () => {
+// return (
+// <MDBContainer>
+//   <MDBRow>
+//     <MDBCol md="6">
+//       <form>
+//         <p className="h5 text-center mb-4">Sign in</p>
+//         <div className="grey-text">
+//           <MDBInput label="Type your email" icon="envelope" group type="email" validate error="wrong"
+//             success="right" />
+//           <MDBInput label="Type your password" icon="lock" group type="password" validate />
+//         </div>
+//         <div className="text-center">
+//           <MDBBtn>Login</MDBBtn>
+//         </div>
+//       </form>
+//     </MDBCol>
+//   </MDBRow>
+// </MDBContainer>
+// );
+// };
