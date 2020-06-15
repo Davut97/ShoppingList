@@ -46,7 +46,7 @@ const Lists = (props) => {
           <MDBCardText>
             This list was created {data} and has {NumbersOfItems} items
           </MDBCardText>
-          <MDBBtn type='button' onClick={(e) => handleToggleComplete(e)}>
+          <MDBBtn type='button' onClick={() => handleToggleComplete()}>
             MDBBtn
           </MDBBtn>
         </MDBCardBody>

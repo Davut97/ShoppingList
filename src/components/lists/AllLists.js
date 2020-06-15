@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 
 const AllLists = (props) => {
   // console.log(props);
-  const {lists, auth} = props;
+  let {lists, auth} = props;
 
   if (!auth.uid) return <Redirect to='/signin' />;
 
@@ -24,7 +24,7 @@ const AllLists = (props) => {
           return (
             <>
               <Link to={`list/${list.id}`} key={list.id}>
-                <Lists list={list} />
+                <Lists key={list.id} list={list} />
               </Link>
             </>
           );
