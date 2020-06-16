@@ -7,7 +7,7 @@ const Items = (props) => {
   // console.log(props);
   return (
     <div>
-      <form onSubmit={console.log}>
+      <form>
         <div>
           <label htmlFor='name'>Item: </label>
           <input

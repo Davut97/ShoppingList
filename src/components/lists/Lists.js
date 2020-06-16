@@ -21,7 +21,7 @@ import {
 import './Lists.css'
 
 const Lists = (props) => {
-  console.log(props);
+  // console.log(props);
   const data = moment(props.list.createdAt.toDate()).calendar();
 
   const NumbersOfItems = props.list.items ? props.list.items.length : 'No';
@@ -90,6 +90,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 export default connect(null, mapDispatchToProps)(Lists);
+<<<<<<< HEAD
 
 
     // <MDBCol>
@@ -110,3 +111,7 @@ export default connect(null, mapDispatchToProps)(Lists);
     //     </MDBCardBody>
     //   </MDBCard>
     // </MDBCol>
+||||||| 9f83987
+=======
+////test only
+>>>>>>> cd3d0a93a16691f9f7f10a55e50807864afaa0c6
