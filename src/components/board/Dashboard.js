@@ -28,6 +28,7 @@ const Dashboard = ({lists, auth}) => {
     }
     return comparison;
   }
+
   function compareTitleDesc(a, b) {
     // Use toUpperCase() to ignore character casing
     const bandA = a.title.toUpperCase();
@@ -41,6 +42,7 @@ const Dashboard = ({lists, auth}) => {
     }
     return comparison;
   }
+
   function compareTimeAsc(a, b) {
     // Use toUpperCase() to ignore character casing
     const bandA = a.createdAt;
@@ -67,6 +69,7 @@ const Dashboard = ({lists, auth}) => {
     }
     return comparison;
   }
+
   const sort = (e) => {
     if (e.target.id === 'TitleAsc') {
       setAllList(lists.slice().sort(compareTitleAsc));
@@ -80,12 +83,14 @@ const Dashboard = ({lists, auth}) => {
       setAllList(lists.slice().sort(compareTimeAsc));
     }
   };
+
+  
   if (auth.uid) {
     return (
       <div>
         <div>
           <MDBDropdown>
-            <MDBDropdownToggle caret color='primary'>
+            <MDBDropdownToggle caret>
               MDBDropdown
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
@@ -114,6 +119,7 @@ const Dashboard = ({lists, auth}) => {
     return <Redirect to='/signin' />;
   }
 };
+
 const mapStateToProps = (state) => {
   console.log(state);
   return {
@@ -121,6 +127,7 @@ const mapStateToProps = (state) => {
     auth: state.firebase.auth,
   };
 };
+
 export default compose(
   connect(mapStateToProps),
   firestoreConnect(() => [

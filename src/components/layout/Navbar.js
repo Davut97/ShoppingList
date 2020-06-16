@@ -17,6 +17,8 @@ import {
   MDBDropdownItem,
   MDBIcon,
 } from 'mdbreact';
+import './Links/Navbar.css'
+
 const Navbar = (props) => {
   const {auth, profile} = props;
   const [isOpen, setIsOPen] = useState(false);
@@ -39,7 +41,7 @@ const Navbar = (props) => {
     //     {auth.isLoaded && links}{' '}
     //   </div>
     // </nav>
-
+    <div className="two">
     <MDBNavbar color='default-color' dark expand='md'>
       <MDBNavbarBrand>
         <strong className='white-text'>Navbar</strong>
@@ -93,6 +95,7 @@ const Navbar = (props) => {
         </MDBNavbarNav>
       </MDBCollapse>
     </MDBNavbar>
+    </div>
   );
 };
 
