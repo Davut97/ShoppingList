@@ -84,7 +84,7 @@ const Dashboard = ({lists, auth}) => {
   useEffect(() => {
     setAllList(lists);
   }, [lists]);
-
+  ///////////test1234
   if (auth.uid) {
     return (
       <div>
