@@ -30,13 +30,13 @@ const Lists = (props) => {
     e.preventDefault();
     const {id, title, items} = props.list;
     // console.log(title, id);
-    props.createCompletedList({title: title, listId: id});
+    props.createCompletedList({title: title, listId: id, image: image});
     let listName = props.list.isCompleted ? 'CompletedLists' : 'lists';
     items &&
       items.forEach((item) => {
         props.addItemToCompletedLists({item: item, listId: id});
       });
-    props.deleteDoc(id, listName);
+    props.deleteDoc({itemId: id, collectionName: listName});
   };
   const deleteList = (e) => {
     e.preventDefault();

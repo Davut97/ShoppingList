@@ -102,7 +102,7 @@ export const editItem = (item) => {
   };
 };
 export const createCompletedList = (list) => {
-  const {title, listId} = list;
+  const {title, listId, image} = list;
   return (dispatch, getState, {getFirestore}) => {
     // getfirestore from index middleware
     const fireStore = getFirestore(); //ref to firestore database
@@ -113,6 +113,7 @@ export const createCompletedList = (list) => {
         title: title,
         createdAt: new Date(),
         isCompleted: true,
+        image: image,
         items: [],
       })
       .then(() => {
