@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import AllLists from '../lists/AllLists';
 import {connect} from 'react-redux';
 import {compose} from 'redux';
@@ -69,7 +69,7 @@ const Dashboard = ({lists, auth}) => {
     }
     return comparison;
   }
-
+  let id = 0;
   const sort = (e) => {
     if (e.target.id === 'TitleAsc') {
       setAllList(lists.slice().sort(compareTitleAsc));
@@ -81,16 +81,16 @@ const Dashboard = ({lists, auth}) => {
       setAllList(lists.slice().sort(compareTimeAsc));
     }
   };
+  useEffect(() => {
+    setAllList(lists);
+  }, [lists]);
 
-  
   if (auth.uid) {
     return (
       <div>
         <div>
           <MDBDropdown>
-            <MDBDropdownToggle caret>
-              MDBDropdown
-            </MDBDropdownToggle>
+            <MDBDropdownToggle caret>MDBDropdown</MDBDropdownToggle>
             <MDBDropdownMenu basic>
               <MDBDropdownItem id='TitleAsc' onClick={sort}>
                 A-Z
@@ -110,7 +110,7 @@ const Dashboard = ({lists, auth}) => {
             </MDBDropdownMenu>
           </MDBDropdown>
         </div>
-        <AllLists key={uuidv4()} lists={AllList || lists} />
+        <AllLists key={id} lists={AllList ? AllList : lists} />
       </div>
     );
   } else {
@@ -119,7 +119,7 @@ const Dashboard = ({lists, auth}) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log(state.firestore.ordered.lists);
   return {
     lists: state.firestore.ordered.lists,
     auth: state.firebase.auth,
@@ -128,9 +128,5 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect(() => [
-    {
-      collection: 'lists',
-    },
-  ])
+  firestoreConnect(() => ['lists'])
 )(Dashboard);
