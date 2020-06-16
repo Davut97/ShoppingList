@@ -27,6 +27,7 @@ const Lists = (props) => {
   const NumbersOfItems = props.list.items ? props.list.items.length : 'No';
   const handleToggleComplete = (e) => {
     e.preventDefault();
+    console.log('hi');
     const {id, title, items} = props.list;
     // console.log(title, id);
     props.createCompletedList({title: title, listId: id});
@@ -35,6 +36,12 @@ const Lists = (props) => {
       items.forEach((item) => {
         props.addItemToCompletedLists({item: item, listId: id});
       });
+    props.deleteDoc(id);
+  };
+  const deleteList = (e) => {
+    e.preventDefault();
+    const {id} = props.list;
+    console.log(id);
     props.deleteDoc(id);
   };
   return (
@@ -62,12 +69,11 @@ const Lists = (props) => {
               floating
               tag='a'
               className='ml-auto mr-4 lighten-3 mdb-coalor'
-              action>
+              onClick={(e) => handleToggleComplete(e)}>
               <MDBIcon
                 icon='chevron-right'
                 className='mdb-color lighten-3'
                 type='button'
-                onClick={() => handleToggleComplete()}
               />
             </MDBBtn>
             <MDBCardBody cascade>
@@ -87,6 +93,9 @@ const Lists = (props) => {
           </MDBCard>
         </MDBCol>
       </MDBRow>
+      <button type='button' onClick={(e) => deleteList(e)}>
+        Delete List
+      </button>
     </div>
     // </div>
   );
@@ -101,22 +110,3 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 export default connect(null, mapDispatchToProps)(Lists);
-
-// <MDBCol>
-//   <MDBCard style={{width: '22rem'}}>
-//     <MDBCardImage
-//       className='img-fluid'
-//       src='https://mdbootstrap.com/img/Photos/Others/images/43.jpg'
-//       waves
-//     />
-//     <MDBCardBody>
-//       <MDBCardTitle>{props.list.title}</MDBCardTitle>
-//       <MDBCardText>
-//         This list was created {data} and has {NumbersOfItems} items
-//       </MDBCardText>
-//       <MDBBtn type='button' onClick={() => handleToggleComplete()}>
-//         MDBBtn
-//       </MDBBtn>
-//     </MDBCardBody>
-//   </MDBCard>
-// </MDBCol>
