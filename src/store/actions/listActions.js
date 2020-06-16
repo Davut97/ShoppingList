@@ -54,7 +54,7 @@ export const addItem = (item) => {
 }); */
 export const deleteItem = (item) => {
   const {listId, itemId, itemName, itemAmount} = item;
-  console.log(item);
+  // console.log(item);
   // console.log(item);
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //make async call to database
@@ -82,7 +82,7 @@ export const deleteItem = (item) => {
 export const editItem = (item) => {
   const {listId, itemId, itemName, itemAmount} = item;
   // console.log(name, amount, id);
-  console.log(itemName);
+  // console.log(itemName);
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //make async call to database
 
@@ -128,7 +128,7 @@ export const addItemToCompletedLists = (item) => {
   // console.log(item);
   const {listId} = item;
   // console.log(name, amount, id);
-  console.log(item.item.id, item.item.name, item.item.amount, listId);
+  // console.log(item.item.id, item.item.name, item.item.amount, listId);
   return (dispatch, getState, {getFirebase, getFirestore}) => {
     //make async call to database
 
@@ -153,7 +153,7 @@ export const addItemToCompletedLists = (item) => {
   };
 };
 export const deleteDoc = (item) => {
-  console.log(item);
+  // console.log(item);
 
   // console.log(name, amount, id);
   return (dispatch, getState, {getFirebase, getFirestore}) => {
@@ -161,8 +161,8 @@ export const deleteDoc = (item) => {
 
     const firestore = getFirestore(); // ref to firestore api
     firestore
-      .collection('lists')
-      .doc(item)
+      .collection(item.collectionName)
+      .doc(item.itemId)
       .delete()
       .then(() => {
         // console.log('hi');

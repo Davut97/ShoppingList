@@ -13,7 +13,7 @@ import {
 } from 'mdbreact';
 
 const Dashboard = ({lists, auth}) => {
-  console.log(lists);
+  // console.log(lists);
   const [AllList, setAllList] = useState(lists);
   function compareTitleAsc(a, b) {
     // Use toUpperCase() to ignore character casing
@@ -119,7 +119,7 @@ const Dashboard = ({lists, auth}) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.firestore.ordered.lists);
+  // console.log(state.firestore.ordered.lists);
   return {
     lists: state.firestore.ordered.lists,
     auth: state.firebase.auth,

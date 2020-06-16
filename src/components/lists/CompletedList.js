@@ -31,7 +31,7 @@ const CompletedList = (props) => {
   }
 };
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state);
+  // console.log(ownProps);
   const id = ownProps.match.params.id;
   const CompletedLists = state.firestore.data.CompletedLists;
   const list = CompletedLists ? CompletedLists[id] : null;

@@ -12,7 +12,7 @@ const CreatList = (props) => {
   };
   const {auth} = props;
 
-  console.log(props);
+  // console.log(props);
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -38,7 +38,7 @@ const CreatList = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     auth: state.firebase.auth,
   };

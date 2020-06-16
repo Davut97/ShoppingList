@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Lists from './Lists';
 import {Link, Redirect} from 'react-router-dom';
 import {
@@ -13,18 +13,30 @@ import {connect} from 'react-redux';
 const AllLists = (props) => {
   // console.log(props);
   let {lists, auth} = props;
+  const [isOPen, setIsOpen] = useState(false);
 
   if (!auth.uid) return <Redirect to='/signin' />;
+  const HandleIsOpen = (e) => {
+    e.preventDefault();
+    console.log(isOPen);
+    setIsOpen(!isOPen);
+    console.log(isOPen);
+  };
 
   return (
     <div>
+      <div>
+        <button type='button' onClick={(e) => HandleIsOpen(e)}>
+          hi
+        </button>
+      </div>
       {lists &&
         lists.map((list) => {
           // console.log(list);
           return (
             <>
               <Link to={`list/${list.id}`} key={list.id}>
-                <Lists key={list.id} list={list} />
+                <Lists key={list.id} list={list} isOpen={isOPen} />
               </Link>
             </>
           );

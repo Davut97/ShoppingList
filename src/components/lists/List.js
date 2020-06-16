@@ -9,7 +9,7 @@ import {Redirect} from 'react-router-dom';
 const List = (props) => {
   // console.log(props.list); // to see match.params.id
   const {list, items, auth} = props;
-  console.log(props);
+  // console.log(props);
 
   const id = props.match.params.id;
   const [name, setName] = useState('');
