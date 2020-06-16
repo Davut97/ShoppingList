@@ -73,8 +73,6 @@ const Dashboard = ({lists, auth}) => {
     } else if (e.target.id === 'TitleDesc') {
       setAllList(lists.slice().sort(compareTitleDesc));
     } else if (e.target.id === 'TimeDesc') {
-      console.log('hi');
-      console.log(lists.slice().sort(compareTimeDesc));
       setAllList(lists.slice().sort(compareTimeDesc));
     } else {
       setAllList(lists.slice().sort(compareTimeAsc));
