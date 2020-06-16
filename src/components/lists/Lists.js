@@ -46,6 +46,7 @@ const Lists = (props) => {
     props.deleteDoc({itemId: id, collectionName: listName});
   };
   if (props.isOpen) {
+    /// add new style here !!!! inside the return(here)
     return <p>hi</p>;
   } else {
     return (
