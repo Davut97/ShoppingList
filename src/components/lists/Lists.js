@@ -23,6 +23,7 @@ const Lists = (props) => {
   // console.log(props);
   const data = moment(props.list.createdAt.toDate()).calendar();
   // console.log(props.list.isCompleted);
+  const {image} = props.list;
 
   const NumbersOfItems = props.list.items ? props.list.items.length : 'No';
   const handleToggleComplete = (e) => {
@@ -68,7 +69,8 @@ const Lists = (props) => {
                 className='img-fluid'
                 overlay='white-light'
                 hover
-                src='https://mdbootstrap.com/img/Photos/Others/food.jpg'
+                src={image}
+                onError={(i) => (i.target.style.display = 'none')}
               />
               <MDBBtn
                 floating
