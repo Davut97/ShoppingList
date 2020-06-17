@@ -1,23 +1,14 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {signOut} from '../../../store/actions/authActions';
-const LogIn = (props) => {
+
+import {MDBNavItem, MDBNavLink} from 'mdbreact';
+const LogIn = () => {
   return (
-    <ul>
-      <li>
-        <NavLink to='/create'>New List</NavLink>
-      </li>
-      <li>
-        <a onClick={props.OnSignOut}>Log out</a>
-      </li>
-    </ul>
+    <>
+      <MDBNavItem>
+        <MDBNavLink to='/create'>New List</MDBNavLink>
+      </MDBNavItem>
+    </>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    OnSignOut: () => dispatch(signOut()),
-  };
-};
-export default connect(null, mapDispatchToProps)(LogIn);
+export default LogIn;

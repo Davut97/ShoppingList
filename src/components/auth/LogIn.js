@@ -16,6 +16,7 @@ const LogIn = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.onSignIn({email, password});
+    props.history.push('/');
   };
   return (
     <MDBContainer>

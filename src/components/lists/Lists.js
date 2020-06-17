@@ -10,6 +10,7 @@ import {
   MDBCol,
   MDBRow,
   MDBIcon,
+  MDBContainer,
 } from 'mdbreact';
 import {connect} from 'react-redux';
 import {
@@ -52,58 +53,48 @@ const Lists = (props) => {
   } else {
     return (
       // <div style= {{ display: 'flex', justifyContent: 'center' }} class="text-center">
-      <div
-        className='row'
-        style={{
-          width: '30%',
-          display: 'inline-block',
-          padding: '30px',
-          margin: '0 auto',
-        }}
-        className='mb-4'>
-        <MDBRow>
-          <MDBCol>
-            <MDBCard cascade>
-              <MDBCardImage
-                cascade
-                className='img-fluid'
-                overlay='white-light'
-                hover
-                src={image}
-                onError={(i) => (i.target.style.display = 'none')}
-              />
-              <MDBBtn
-                floating
-                tag='a'
-                className='ml-auto mr-4 lighten-3 mdb-coalor'
-                onClick={(e) => handleToggleComplete(e)}>
-                <MDBIcon
-                  icon='chevron-right'
-                  className='mdb-color lighten-3'
-                  type='button'
-                />
-              </MDBBtn>
-              <MDBCardBody cascade>
-                <MDBCardTitle>{props.list.title}</MDBCardTitle>
-                <hr />
-                <MDBCardText>
-                  This list was created {data} and has {NumbersOfItems} items
-                </MDBCardText>
-              </MDBCardBody>
-              <div className='rounded-bottom mdb-color lighten-3 text-center pt-3'>
-                <ul className='list-unstyled list-inline font-small'>
-                  <li className='list-inline-item pr-2 white-text'>
-                    <MDBIcon far icon='clock' /> 05/10/2015
-                  </li>
-                </ul>
-              </div>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
+
+      <>
+        <MDBCard cascade>
+          <MDBCardImage
+            cascade
+            className='img-fluid'
+            overlay='white-light'
+            hover
+            src={image}
+            onError={(i) => (i.target.style.display = 'none')}
+          />
+          <MDBBtn
+            floating
+            tag='a'
+            className='ml-auto mr-4 lighten-3 mdb-coalor'
+            onClick={(e) => handleToggleComplete(e)}>
+            <MDBIcon
+              icon='chevron-right'
+              className='mdb-color lighten-3'
+              type='button'
+            />
+          </MDBBtn>
+          <MDBCardBody cascade>
+            <MDBCardTitle>{props.list.title}</MDBCardTitle>
+            <hr />
+            <MDBCardText>
+              This list was created {data} and has {NumbersOfItems} items
+            </MDBCardText>
+          </MDBCardBody>
+          <div className='rounded-bottom mdb-color lighten-3 text-center pt-3'>
+            <ul className='list-unstyled list-inline font-small'>
+              <li className='list-inline-item pr-2 white-text'>
+                <MDBIcon far icon='clock' /> 05/10/2015
+              </li>
+            </ul>
+          </div>
+        </MDBCard>
         <button type='button' onClick={(e) => deleteList(e)}>
           Delete List
         </button>
-      </div>
+      </>
+
       // </div>
     );
   }

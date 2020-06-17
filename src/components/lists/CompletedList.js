@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 
 const CompletedList = (props) => {
   // console.log(props.list); // to see match.params.id
-  const {list, items, auth} = props;
+  const {items, auth} = props;
   // console.log(props);
 
   const id = props.match.params.id;

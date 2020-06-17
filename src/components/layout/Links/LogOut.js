@@ -1,15 +1,16 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {MDBNavItem, MDBNavLink} from 'mdbreact';
 const LogOut = () => {
   return (
-    <ul>
-      <li>
-        <NavLink to='/signup'>Signup</NavLink>
-      </li>
-      <li>
-        <NavLink to='/login'>Log in</NavLink>
-      </li>
-    </ul>
+    <>
+      <MDBNavItem>
+        <MDBNavLink to='/signup'>Signup</MDBNavLink>
+      </MDBNavItem>
+      <MDBNavItem>
+        <MDBNavLink to='/login'>Log in</MDBNavLink>
+      </MDBNavItem>
+    </>
   );
 };
 

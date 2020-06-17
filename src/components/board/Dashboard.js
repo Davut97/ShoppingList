@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {Redirect} from 'react-router-dom';
-import {v4 as uuidv4} from 'uuid';
 import {
   MDBDropdown,
   MDBDropdownToggle,
@@ -90,7 +89,9 @@ const Dashboard = ({lists, auth}) => {
       <div>
         <div>
           <MDBDropdown>
-            <MDBDropdownToggle caret>MDBDropdown</MDBDropdownToggle>
+            <MDBDropdownToggle color='#1b5e20 green darken-4' caret>
+              MDBDropdown
+            </MDBDropdownToggle>
             <MDBDropdownMenu basic>
               <MDBDropdownItem id='TitleAsc' onClick={sort}>
                 A-Z
