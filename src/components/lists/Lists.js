@@ -49,7 +49,35 @@ const Lists = (props) => {
   };
   if (props.isOpen) {
     /// add new style here !!!! inside the return(here)
-    return <p>hi</p>;
+    return (
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol size='12'>
+            <MDBCard className='info-color text-center z-depth-2'>
+              <MDBCardBody>
+                <p className='white-text mb-0'>{props.list.title}</p>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+          <MDBCol size='12'>
+            <MDBCard className='mdb-color text-center z-depth-2'>
+              <MDBCardBody>
+                <p className='white-text mb-0'>
+                  {' '}
+                  This list was created {data} and has {NumbersOfItems} items
+                </p>
+                <br></br>
+                <p style={{borderTop: '1px'}}>05/10/2015</p>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+          <MDBCol size='12'>
+            <br></br>
+            <br></br>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    );
   } else {
     return (
       // <div style= {{ display: 'flex', justifyContent: 'center' }} class="text-center">
