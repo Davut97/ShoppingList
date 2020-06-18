@@ -89,7 +89,7 @@ const Dashboard = ({lists, auth}) => {
       <div>
         <div>
           <MDBDropdown>
-            <MDBDropdownToggle color='#1b5e20 green darken-4' caret>
+            <MDBDropdownToggle color='#e65100 orange darken-4' caret>
               MDBDropdown
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
