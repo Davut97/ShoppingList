@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {MDBBtn, MDBCol, MDBRow, MDBIcon, MDBContainer, MDBInput} from 'mdbreact';
+import {MDBBtn, MDBCol, MDBRow, MDBIcon, MDBContainer, MDBInput, MDBListGroupItem, MDBListGroup} from 'mdbreact';
 
 const Items = (props) => {
   // console.log(props)
@@ -7,14 +7,19 @@ const Items = (props) => {
   const [itemAmount, setItemAmount] = useState(props.item.amount);
   // console.log(props);
   return (
-    <div>
-      <form style={{width: '400px', margin: "auto", marginTop: "60px"}}>
-        <div>
-          <MDBInput label="Item Name" id='name' onChange={(event) => setItemName(event.target.value)}  id='name' value={itemName} placeholder={itemName}/>
-        </div>
-        <div>
-          <MDBInput label="Item Name" id='amount' onChange={(event) => setItemAmount(event.target.value)}  id='amount' value={itemAmount} placeholder={itemAmount}/>
-        </div>
+    <div style={{width: '400px', margin: "auto", marginTop: "60px"}}>
+
+        <MDBContainer>
+        <MDBListGroup className="my-4 mx-4" style={{ width: "22rem" }}>
+
+        <MDBListGroupItem color="primary">
+            <MDBInput label="Item Name" id='name' onChange={(event) => setItemName(event.target.value)}  id='name' value={itemName} placeholder={itemName}/>
+            <MDBInput label="Amount" id='amount' onChange={(event) => setItemAmount(event.target.value)}  id='amount' value={itemAmount} placeholder={itemAmount}/>
+        </MDBListGroupItem>
+        </MDBListGroup>
+        </MDBContainer>
+
+      <form>
 
         <MDBBtn color="mdb-color" onClick={() => { props.handleClick(props.id, props.item.id, itemName, itemAmount); }}>DELETE ITEM</MDBBtn>
       
@@ -26,6 +31,13 @@ const Items = (props) => {
 };
 
 export default Items;
+
+// <div>
+// <MDBInput label="Item Name" id='name' onChange={(event) => setItemName(event.target.value)}  id='name' value={itemName} placeholder={itemName}/>
+// </div>
+// <div>
+// <MDBInput label="Amount" id='amount' onChange={(event) => setItemAmount(event.target.value)}  id='amount' value={itemAmount} placeholder={itemAmount}/>
+// </div>
 
 
 // <div>

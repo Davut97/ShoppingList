@@ -49,19 +49,21 @@ const CreatList = (props) => {
             onChange={handleChangeTitle}
           />
         </div>
-        <div>
+
+        <MDBDropdown>
+          <MDBDropdownToggle caret color='pink' style={{width: '350px', margin: 'auto'}}>
+            Choose Image
+          </MDBDropdownToggle>
+
+          <div>
           <MDBBtn
             color='secondary'
             onClick={(e) => handleSubmit(e)}
-            style={{width: '350px', margin: 'auto'}}>
+            style={{width: '350px', margin: 'auto', marginTop: "10px",}}>
             Create
           </MDBBtn>
         </div>
 
-        <MDBDropdown>
-          <MDBDropdownToggle caret color='pink'>
-            Choose Image
-          </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem value='null' onClick={handleSelect}>
               None

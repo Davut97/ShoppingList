@@ -47,9 +47,9 @@ const Navbar = (props) => {
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
-              <MDBNavLink to='#!' className='white-text' >
-              {LogOuticon}
-              </MDBNavLink>
+            <MDBNavLink to='#!' className='white-text' >
+            {LogOuticon}
+            </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
 
