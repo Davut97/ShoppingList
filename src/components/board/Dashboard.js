@@ -9,8 +9,6 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBBtn,
-  MDBIcon,
 } from 'mdbreact';
 
 const Dashboard = ({lists, auth}) => {
@@ -87,12 +85,6 @@ const Dashboard = ({lists, auth}) => {
   useEffect(() => {
     setAllList(lists);
   }, [lists]);
-  const HandleIsOpen = (e) => {
-    e.preventDefault();
-    console.log(isOPen);
-    setIsOpen(!isOPen);
-    console.log(isOPen);
-  };
 
   if (auth.uid) {
     return (
@@ -123,9 +115,6 @@ const Dashboard = ({lists, auth}) => {
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
-          <MDBBtn type='button' onClick={(e) => HandleIsOpen(e)}>
-            <MDBIcon icon='sync-alt' />
-          </MDBBtn>
         </div>
         <AllLists key={id} lists={AllList ? AllList : lists} />
       </div>

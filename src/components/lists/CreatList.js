@@ -53,7 +53,7 @@ const CreatList = (props) => {
           <MDBBtn
             color='secondary'
             onClick={(e) => handleSubmit(e)}
-            style={{width: '300px', margin: 'auto'}}>
+            style={{width: '350px', margin: 'auto'}}>
             Create
           </MDBBtn>
         </div>
