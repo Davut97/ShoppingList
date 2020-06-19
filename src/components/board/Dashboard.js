@@ -89,8 +89,8 @@ const Dashboard = ({lists, auth}) => {
       <div>
         <div>
           <MDBDropdown>
-            <MDBDropdownToggle color='#e65100 orange darken-4' caret>
-              MDBDropdown
+            <MDBDropdownToggle color="mdb-color" caret style={{marginLeft: "120px", marginTop: "20px",}}>
+              Arrange
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
               <MDBDropdownItem id='TitleAsc' onClick={sort}>

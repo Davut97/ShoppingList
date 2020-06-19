@@ -36,11 +36,13 @@ const AllLists = (props) => {
 
   return (
     <MDBContainer>
+    
       <div>
-        <button type='button' onClick={(e) => HandleIsOpen(e)}>
-          hi
-        </button>
+        <MDBBtn type='button' onClick={(e) => HandleIsOpen(e)}>
+        <MDBIcon icon="sync-alt" />
+        </MDBBtn>
       </div>
+      
       <MDBRow>
         {lists &&
           lists.map((list) => {

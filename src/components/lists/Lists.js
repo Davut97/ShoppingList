@@ -53,21 +53,21 @@ const Lists = (props) => {
       <MDBContainer>
         <MDBRow>
           <MDBCol size='12'>
-            <MDBCard className='info-color text-center z-depth-2'>
+            <MDBCard className='default-color text-center z-depth-2'>
               <MDBCardBody>
                 <p className='white-text mb-0'>{props.list.title}</p>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
           <MDBCol size='12'>
-            <MDBCard className='mdb-color text-center z-depth-2'>
+            <MDBCard className='blue-grey text-center z-depth-2'>
               <MDBCardBody>
                 <p className='white-text mb-0'>
                   {' '}
                   This list was created {data} and has {NumbersOfItems} items
                 </p>
                 <br></br>
-                <p style={{borderTop: '1px'}}>05/10/2015</p>
+                <p className='white-text mb-0' style={{borderTop: '1px'}}>05/10/2015</p>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -113,7 +113,8 @@ const Lists = (props) => {
           <div className='rounded-bottom mdb-color lighten-3 text-center pt-3'>
             <ul className='list-unstyled list-inline font-small'>
               <li className='list-inline-item pr-2 white-text'>
-                <MDBIcon far icon='clock' /> 05/10/2015
+                <MDBIcon onClick={(e) => deleteList(e)}/>
+                  Delete List
               </li>
             </ul>
           </div>
@@ -138,3 +139,17 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(Lists);
+
+
+// <MDBIcon far icon='clock' /> 05/10/2015
+// <MDBBtn
+// floating
+// tag='a'
+// className='ml-auto mr-4 lighten-3 mdb-coalor'
+// onClick={(e) => deleteList(e)}>
+// <MDBIcon
+//   icon='chevron-right'
+//   className='mdb-color lighten-3'
+//   type='button'
+// />
+// </MDBBtn>

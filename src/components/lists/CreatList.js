@@ -8,6 +8,8 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
+  MDBInput,
+  MDBBtn
 } from 'mdbreact';
 
 const CreatList = (props) => {
@@ -35,20 +37,19 @@ const CreatList = (props) => {
   return (
     <div>
       <form>
+      <br></br>
+      <br></br>
         <h5>Create list</h5>
+            <div className="form-group">
+            <MDBInput label="New List" size="lg" id='title' onChange={handleChangeTitle}/>
+            </div>
         <div>
-          <label htmlFor='title'>title</label>
-          <input type='text' id='title' onChange={handleChangeTitle} />
+            <MDBBtn color="secondary">Create</MDBBtn>
         </div>
 
-        <div>
-          <button type='button' onClick={handleSubmit}>
-            create
-          </button>
-        </div>
         <MDBDropdown>
-          <MDBDropdownToggle caret color='primary'>
-            MDBDropdown
+          <MDBDropdownToggle caret color='pink'>
+            Choose Image
           </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem value='null' onClick={handleSelect}>
@@ -112,3 +113,14 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(CreatList);
+
+
+// <div>
+//           <label htmlFor='title'>title</label>
+//           <input type='text' id='title' onChange={handleChangeTitle} />
+//         </div>
+        // <div>
+        //   <button type='button' onClick={handleSubmit}>
+        //     create
+        //   </button>
+        // </div>
