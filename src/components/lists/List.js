@@ -5,7 +5,14 @@ import {compose} from 'redux';
 import {addItem, deleteItem, editItem} from '../../store/actions/listActions';
 import Items from './Items';
 import {Redirect} from 'react-router-dom';
-import {MDBBtn, MDBCol, MDBRow, MDBIcon, MDBContainer, MDBInput } from 'mdbreact';
+import {
+  MDBBtn,
+  MDBCol,
+  MDBRow,
+  MDBIcon,
+  MDBContainer,
+  MDBInput,
+} from 'mdbreact';
 
 const List = (props) => {
   // console.log(props.list); // to see match.params.id
@@ -45,7 +52,7 @@ const List = (props) => {
       itemName: itemName,
       itemAmount: itemAmount,
     });
-    alert("Item Edited")
+    alert('Item Edited');
   };
   useEffect(() => {
     setFetchedItems(items);
@@ -55,15 +62,25 @@ const List = (props) => {
     return (
       <div>
         <div>
-          <form style={{width: '400px', margin: "auto", marginTop: "60px"}}>
+          <form style={{width: '400px', margin: 'auto', marginTop: '60px'}}>
             <h5>Add item</h5>
-            <div style={{width: '400px', margin: "auto", marginTop: "60px"}}>
-              <MDBInput label="Item Name" id='name' onChange={handleChangeName} />
-              <MDBInput label="Amount" id='amount' onChange={handleChangeAmount} />
+            <div style={{width: '400px', margin: 'auto', marginTop: '60px'}}>
+              <MDBInput
+                label='Item Name'
+                id='name'
+                onChange={handleChangeName}
+              />
+              <MDBInput
+                label='Amount'
+                id='amount'
+                onChange={handleChangeAmount}
+              />
             </div>
 
             <div>
-            <MDBBtn color="pink" onClick={handleSubmit}>Add Item</MDBBtn>
+              <MDBBtn color='pink' onClick={handleSubmit}>
+                Add Item
+              </MDBBtn>
             </div>
           </form>
 
@@ -81,7 +98,7 @@ const List = (props) => {
       </div>
     );
   } else {
-    return <Redirect to='/signin' />;
+    return <Redirect to='/login' />;
   }
 };
 const mapStateToProps = (state, ownProps) => {
@@ -111,8 +128,6 @@ export default compose(
   firestoreConnect(() => ['lists']),
   connect(mapStateToProps, mapDispatchToProps)
 )(List);
-
-
 
 // <form onSubmit={handleSubmit}>
 //             <h5>Add item</h5>

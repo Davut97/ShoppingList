@@ -27,7 +27,7 @@ const CompletedList = (props) => {
       </div>
     );
   } else {
-    return <Redirect to='/signin' />;
+    return <Redirect to='/login' />;
   }
 };
 const mapStateToProps = (state, ownProps) => {

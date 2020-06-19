@@ -8,7 +8,7 @@ import {MDBBtn, MDBCol, MDBRow, MDBIcon, MDBContainer} from 'mdbreact';
 
 const CompletedLists = ({CompletedLists, auth}) => {
   // console.log(CompletedLists);
-  if (!auth.uid) return <Redirect to='/signin' />;
+  if (!auth.uid) return <Redirect to='/login' />;
 
   return (
     <MDBContainer>

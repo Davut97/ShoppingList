@@ -10,6 +10,7 @@ import {
   MDBCard,
   MDBCardBody,
 } from 'mdbreact';
+import {Link, Redirect} from 'react-router-dom';
 
 const LogIn = (props) => {
   const [email, setEmail] = useState('');
@@ -20,14 +21,17 @@ const LogIn = (props) => {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
+  console.log(props.auth);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     props.onSignIn({email, password});
     props.history.push('/');
   };
+  if (props.auth.uid) return <Redirect to='/' />;
   return (
-    <MDBContainer style={{width: '450px', marginTop: "60px", marginBottom: "60px"}}>
+    <MDBContainer
+      style={{width: '450px', marginTop: '60px', marginBottom: '60px'}}>
       <MDBRow>
         <MDBCol md='12' style={{width: '300px', margin: 'auto 0'}}>
           <MDBCard>

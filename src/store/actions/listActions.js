@@ -90,7 +90,7 @@ export const editItem = (item) => {
     firestore
       .collection('lists')
       .doc(listId)
-      .set({
+      .update({
         items: [{id: itemId, name: itemName, amount: itemAmount}],
       })
       .then(() => {

@@ -32,10 +32,10 @@ const CreatList = (props) => {
     event.preventDefault();
     setImageUrl(event.target.value);
   };
-  if (!auth.uid) return <Redirect to='/signin' />;
+  if (!auth.uid) return <Redirect to='/login' />;
 
   return (
-    <div style={{width: '400px', margin: "auto", marginTop: "60px"}}>
+    <div style={{width: '400px', margin: 'auto', marginTop: '60px'}}>
       <form>
         <br></br>
         <br></br>
@@ -50,9 +50,10 @@ const CreatList = (props) => {
           />
         </div>
         <div>
-          <MDBBtn color='secondary' 
-                        onClick={(e) => handleSubmit(e)} 
-                        style={{width: '300px', margin: "auto",}}>
+          <MDBBtn
+            color='secondary'
+            onClick={(e) => handleSubmit(e)}
+            style={{width: '300px', margin: 'auto'}}>
             Create
           </MDBBtn>
         </div>

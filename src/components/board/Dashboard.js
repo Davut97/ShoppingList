@@ -131,7 +131,7 @@ const Dashboard = ({lists, auth}) => {
       </div>
     );
   } else {
-    return <Redirect to='/signin' />;
+    return <Redirect to='/login' />;
   }
 };
 
