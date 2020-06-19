@@ -27,7 +27,7 @@ const LogIn = (props) => {
     props.history.push('/');
   };
   return (
-    <MDBContainer style={{width: '1500px'}}>
+    <MDBContainer style={{width: '450px', marginTop: "60px", marginBottom: "60px"}}>
       <MDBRow>
         <MDBCol md='12' style={{width: '300px', margin: 'auto 0'}}>
           <MDBCard>

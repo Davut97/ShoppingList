@@ -39,7 +39,7 @@ const SignUp = (props) => {
 
   return (
     <div>
-      <MDBContainer>
+      <MDBContainer style={{width: '450px', marginTop: "60px", marginBottom: "60px"}}>
         <MDBRow>
           <MDBCol
             md='12'

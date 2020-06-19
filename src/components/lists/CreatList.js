@@ -35,7 +35,7 @@ const CreatList = (props) => {
   if (!auth.uid) return <Redirect to='/signin' />;
 
   return (
-    <div>
+    <div style={{width: '400px', margin: "auto", marginTop: "60px"}}>
       <form>
         <br></br>
         <br></br>
@@ -50,7 +50,9 @@ const CreatList = (props) => {
           />
         </div>
         <div>
-          <MDBBtn color='secondary' onClick={(e) => handleSubmit(e)}>
+          <MDBBtn color='secondary' 
+                        onClick={(e) => handleSubmit(e)} 
+                        style={{width: '300px', margin: "auto",}}>
             Create
           </MDBBtn>
         </div>
