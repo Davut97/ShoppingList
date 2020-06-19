@@ -9,18 +9,7 @@ import {
 import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
-import {
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBCardImage,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCol,
-  MDBRow,
-  MDBIcon,
-  MDBContainer,
-} from 'mdbreact';
+import {MDBBtn, MDBCol, MDBRow, MDBIcon, MDBContainer} from 'mdbreact';
 const AllLists = (props) => {
   // console.log(props);
   let {lists, auth} = props;
@@ -36,13 +25,12 @@ const AllLists = (props) => {
 
   return (
     <MDBContainer>
-    
       <div>
         <MDBBtn type='button' onClick={(e) => HandleIsOpen(e)}>
-        <MDBIcon icon="sync-alt" />
+          <MDBIcon icon='sync-alt' />
         </MDBBtn>
       </div>
-      
+
       <MDBRow>
         {lists &&
           lists.map((list) => {

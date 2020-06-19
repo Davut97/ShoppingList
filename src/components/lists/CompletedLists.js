@@ -4,25 +4,28 @@ import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import Lists from './Lists';
 import {Link, Redirect} from 'react-router-dom';
+import {MDBBtn, MDBCol, MDBRow, MDBIcon, MDBContainer} from 'mdbreact';
 
 const CompletedLists = ({CompletedLists, auth}) => {
   // console.log(CompletedLists);
   if (!auth.uid) return <Redirect to='/signin' />;
 
   return (
-    <div>
-      {CompletedLists &&
-        CompletedLists.map((list) => {
-          // console.log(list);
-          return (
-            <>
-              <Link to={`completedlist/${list.id}`} key={list.id}>
-                <Lists list={list} />
-              </Link>
-            </>
-          );
-        })}
-    </div>
+    <MDBContainer>
+      <MDBRow>
+        {CompletedLists &&
+          CompletedLists.map((list) => {
+            // console.log(list);
+            return (
+              <MDBCol size='4'>
+                <Link to={`completedlist/${list.id}`} key={list.id}>
+                  <Lists list={list} />
+                </Link>
+              </MDBCol>
+            );
+          })}
+      </MDBRow>
+    </MDBContainer>
   );
 };
 const mapStateToProps = (state) => {

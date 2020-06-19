@@ -1,7 +1,15 @@
 import React, {useState} from 'react';
 import {signIn} from '../../store/actions/authActions';
 import {connect} from 'react-redux';
-import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody} from 'mdbreact';
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+} from 'mdbreact';
 
 const LogIn = (props) => {
   const [email, setEmail] = useState('');
@@ -19,54 +27,50 @@ const LogIn = (props) => {
     props.history.push('/');
   };
   return (
-    
-    <MDBContainer>
+    <MDBContainer style={{width: '1500px'}}>
       <MDBRow>
-        <MDBCol md="12" style={{ width: "300px", margin: "auto 0" }}>
+        <MDBCol md='12' style={{width: '300px', margin: 'auto 0'}}>
           <MDBCard>
-            <div className="header pt-3 grey lighten-2">
-              <MDBRow className="d-flex justify-content-start">
-                <h3 className="deep-grey-text mt-3 mb-4 pb-1 mx-5">
-                  Log in
-                </h3>
+            <div className='header pt-3 grey lighten-2'>
+              <MDBRow className='d-flex justify-content-start'>
+                <h3 className='deep-grey-text mt-3 mb-4 pb-1 mx-5'>Log in</h3>
               </MDBRow>
             </div>
-            <MDBCardBody className="mx-4 mt-4">
-              <MDBInput label="Your email" group type="text" validate onChange={handleEmail} />
+            <MDBCardBody className='mx-4 mt-4'>
               <MDBInput
-                label="Your password"
+                label='Your email'
                 group
-                type="password"
+                type='text'
                 validate
-                containerClass="mb-0"
+                onChange={handleEmail}
+              />
+              <MDBInput
+                label='Your password'
+                group
+                type='password'
+                validate
+                containerClass='mb-0'
                 onChange={handlePassword}
               />
-              <p className="font-small grey-text d-flex justify-content-end">
+              <p className='font-small grey-text d-flex justify-content-end'>
                 Forgot
-                <a
-                  href="#!"
-                  className="dark-grey-text font-weight-bold ml-1"
-                >
+                <a href='#!' className='dark-grey-text font-weight-bold ml-1'>
                   Password?
                 </a>
               </p>
-              <div className="text-center mb-4 mt-5">
+              <div className='text-center mb-4 mt-5'>
                 <MDBBtn
-                  color="danger"
-                  type="button"
-                  className="btn-block z-depth-2"
-                  onClick={handleSubmit}
-                >
+                  color='danger'
+                  type='button'
+                  className='btn-block z-depth-2'
+                  onClick={handleSubmit}>
                   Log in
                 </MDBBtn>
                 <div>{props.authError ? <p>{props.authError}</p> : null}</div>
               </div>
-              <p className="font-small grey-text d-flex justify-content-center">
+              <p className='font-small grey-text d-flex justify-content-center'>
                 Don't have an account?
-                <a
-                  href="#!"
-                  className="dark-grey-text font-weight-bold ml-1"
-                >
+                <a href='#!' className='dark-grey-text font-weight-bold ml-1'>
                   Sign up
                 </a>
               </p>
@@ -92,7 +96,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
-
 
 // <MDBContainer>
 //       <MDBRow>

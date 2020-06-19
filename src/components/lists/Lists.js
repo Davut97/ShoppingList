@@ -67,7 +67,9 @@ const Lists = (props) => {
                   This list was created {data} and has {NumbersOfItems} items
                 </p>
                 <br></br>
-                <p className='white-text mb-0' style={{borderTop: '1px'}}>05/10/2015</p>
+                <p className='white-text mb-0' style={{borderTop: '1px'}}>
+                  05/10/2015
+                </p>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -113,15 +115,13 @@ const Lists = (props) => {
           <div className='rounded-bottom mdb-color lighten-3 text-center pt-3'>
             <ul className='list-unstyled list-inline font-small'>
               <li className='list-inline-item pr-2 white-text'>
-                <MDBIcon onClick={(e) => deleteList(e)}/>
+                <MDBIcon color='lighten-3 ' onClick={(e) => deleteList(e)}>
                   Delete List
+                </MDBIcon>
               </li>
             </ul>
           </div>
         </MDBCard>
-        <button type='button' onClick={(e) => deleteList(e)}>
-          Delete List
-        </button>
       </>
 
       // </div>
@@ -139,7 +139,6 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(null, mapDispatchToProps)(Lists);
-
 
 // <MDBIcon far icon='clock' /> 05/10/2015
 // <MDBBtn

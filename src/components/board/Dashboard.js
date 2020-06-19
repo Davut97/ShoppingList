@@ -9,10 +9,14 @@ import {
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
+  MDBBtn,
+  MDBIcon,
 } from 'mdbreact';
 
 const Dashboard = ({lists, auth}) => {
   // console.log(lists);
+  const [isOPen, setIsOpen] = useState(false);
+
   const [AllList, setAllList] = useState(lists);
   function compareTitleAsc(a, b) {
     // Use toUpperCase() to ignore character casing
@@ -83,13 +87,22 @@ const Dashboard = ({lists, auth}) => {
   useEffect(() => {
     setAllList(lists);
   }, [lists]);
+  const HandleIsOpen = (e) => {
+    e.preventDefault();
+    console.log(isOPen);
+    setIsOpen(!isOPen);
+    console.log(isOPen);
+  };
 
   if (auth.uid) {
     return (
       <div>
         <div>
           <MDBDropdown>
-            <MDBDropdownToggle color="mdb-color" caret style={{marginLeft: "120px", marginTop: "20px",}}>
+            <MDBDropdownToggle
+              color='mdb-color'
+              caret
+              style={{marginLeft: '120px', marginTop: '20px'}}>
               Arrange
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
@@ -110,6 +123,9 @@ const Dashboard = ({lists, auth}) => {
               </MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
+          <MDBBtn type='button' onClick={(e) => HandleIsOpen(e)}>
+            <MDBIcon icon='sync-alt' />
+          </MDBBtn>
         </div>
         <AllLists key={id} lists={AllList ? AllList : lists} />
       </div>
