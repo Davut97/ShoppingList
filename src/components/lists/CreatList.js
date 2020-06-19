@@ -51,62 +51,72 @@ const CreatList = (props) => {
         </div>
 
         <MDBDropdown>
-          <MDBDropdownToggle caret color='pink' style={{width: '350px', margin: 'auto'}}>
+          <MDBDropdownToggle
+            caret
+            color='pink'
+            style={{width: '350px', margin: 'auto'}}>
             Choose Image
           </MDBDropdownToggle>
 
           <div>
-          <MDBBtn
-            color='secondary'
-            onClick={(e) => handleSubmit(e)}
-            style={{width: '350px', margin: 'auto', marginTop: "10px",}}>
-            Create
-          </MDBBtn>
-        </div>
+            <MDBBtn
+              color='secondary'
+              onClick={(e) => handleSubmit(e)}
+              style={{width: '350px', margin: 'auto', marginTop: '10px'}}>
+              Create
+            </MDBBtn>
+          </div>
 
           <MDBDropdownMenu basic>
-            <MDBDropdownItem value='null' onClick={handleSelect}>
-              None
+            <MDBDropdownItem
+              value='https://i.ibb.co/BVY6Zmk/Detergent.jpg'
+              onClick={handleSelect}>
+              Detergents
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/7Qbz9P5/2772795.jpg'
+              value='https://i.ibb.co/p3m13J6/Fruits.jpg'
               onClick={handleSelect}>
               Fruits
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/7Qbz9P5/2772795.jpg'
-              onClick={handleSelect}>
-              Clothes
-            </MDBDropdownItem>
-            <MDBDropdownItem
-              value='https://i.ibb.co/7Qbz9P5/2772795.jpg'
-              onClick={handleSelect}>
-              Spices
-            </MDBDropdownItem>
-            <MDBDropdownItem
-              value='https://i.ibb.co/7Qbz9P5/2772795.jpg'
+              value='https://i.ibb.co/ykhsMVk/Gifts.jpg'
               onClick={handleSelect}>
               Gifts
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/74PmxLy/5205.jpg'
+              value='https://i.ibb.co/NTw5Yc6/Meet.jpg'
+              onClick={handleSelect}>
+              Meat
+            </MDBDropdownItem>
+            <MDBDropdownItem
+              value='https://i.ibb.co/z6y3f08/Men-039-s-Wear.jpg'
+              onClick={handleSelect}>
+              Men's Wear
+            </MDBDropdownItem>
+            <MDBDropdownItem
+              value='https://i.ibb.co/wg01kTt/Spices.jpg'
+              onClick={handleSelect}>
+              Spices
+            </MDBDropdownItem>
+            <MDBDropdownItem
+              value='https://i.ibb.co/GQChjWg/Stationary.jpg'
+              onClick={handleSelect}>
+              Stationary
+            </MDBDropdownItem>
+            <MDBDropdownItem
+              value='https://i.ibb.co/2yKYMGQ/Sweets.jpg'
               onClick={handleSelect}>
               Sweets
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/7Qbz9P5/2772795.jpg'
-              onClick={handleSelect}>
-              Books
-            </MDBDropdownItem>
-            <MDBDropdownItem
-              value='https://i.ibb.co/7Qbz9P5/2772795.jpg'
-              onClick={handleSelect}>
-              miscellaneous
-            </MDBDropdownItem>
-            <MDBDropdownItem
-              value='https://i.ibb.co/7Qbz9P5/2772795.jpg'
+              value='https://i.ibb.co/FW4Q2pq/Vegetables.jpg'
               onClick={handleSelect}>
               Vegetables
+            </MDBDropdownItem>
+            <MDBDropdownItem
+              value='https://i.ibb.co/wN3Jbfm/Others.jpg'
+              onClick={handleSelect}>
+              Others
             </MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>

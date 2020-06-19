@@ -87,14 +87,20 @@ export const editItem = (item) => {
     //make async call to database
 
     const firestore = getFirestore(); // ref to firestore api
+    const firebase = getFirebase(); //ref to our data base
+
     firestore
       .collection('lists')
       .doc(listId)
       .update({
-        items: [{id: itemId, name: itemName, amount: itemAmount}],
+        items: firebase.firestore.FieldValue.arrayUnion({
+          id: itemId,
+          name: itemName,
+          amount: itemAmount,
+        }),
       })
       .then(() => {
-        dispatch({type: actionTypes.REMOVE_ITEM, item});
+        dispatch({type: actionTypes.EDIT_ITEM, item});
       })
       .catch((err) => {
         dispatch({type: 'ERROR_ON_DELETE', err});

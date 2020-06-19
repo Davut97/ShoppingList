@@ -10,7 +10,7 @@ import {
   MDBCard,
   MDBCardBody,
 } from 'mdbreact';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 const LogIn = (props) => {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ const LogIn = (props) => {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
-  console.log(props.auth);
+  // console.log(props.auth);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -87,7 +87,7 @@ const LogIn = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return {
     authError: state.auth.authError,
     auth: state.firebase.auth,

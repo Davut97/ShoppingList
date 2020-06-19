@@ -10,7 +10,6 @@ import {
   MDBNavLink,
   MDBNavbarToggler,
   MDBCollapse,
-  MDBIcon,
 } from 'mdbreact';
 import './Links/Navbar.css';
 import LogOutIcon from './LinksIcons/LogOutIcon';
@@ -20,7 +19,7 @@ const Navbar = (props) => {
   const toggleCollapse = () => {
     setIsOPen(!isOpen);
   };
-  
+
   const links = auth.uid ? (
     <>
       <LogIn profile={profile} />{' '}
@@ -32,7 +31,11 @@ const Navbar = (props) => {
   const LogOuticon = auth.uid ? <LogOutIcon /> : null;
   return (
     <div>
-      <MDBNavbar className='navbar' color='#ff4081 pink accent-2' dark expand='md'>
+      <MDBNavbar
+        className='navbar'
+        color='#ff4081 pink accent-2'
+        dark
+        expand='md'>
         <MDBNavbarBrand>
           <strong className='white-text'>Trelleo</strong>
         </MDBNavbarBrand>
@@ -40,20 +43,20 @@ const Navbar = (props) => {
         <MDBCollapse id='navbarCollapse3' isOpen={isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to='/' className='white-text'>HOME</MDBNavLink>
+              <MDBNavLink to='/' className='white-text'>
+                HOME
+              </MDBNavLink>
             </MDBNavItem>
 
             {links}
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
-            <MDBNavLink to='#!' className='white-text' >
-            {LogOuticon}
-            </MDBNavLink>
+              <MDBNavLink to='#!' className='white-text'>
+                {LogOuticon}
+              </MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem>
-
-            </MDBNavItem>
+            <MDBNavItem></MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>

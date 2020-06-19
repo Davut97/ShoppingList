@@ -84,11 +84,11 @@ const Lists = (props) => {
     return (
       // <div style= {{ display: 'flex', justifyContent: 'center' }} class="text-center">
 
-      <>
+      <React.Fragment>
         <MDBCard cascade>
           <MDBCardImage
             cascade
-            className='img-fluid'
+            className='img-fluid d-inline-block'
             overlay='white-light'
             hover
             src={image}
@@ -97,16 +97,14 @@ const Lists = (props) => {
           <MDBBtn
             floating
             tag='a'
-            className='ml-auto mr-4 lighten-3 mdb-coalor'
+            className='ml-auto mr-4 lighten-3 mdb-coalor d-inline-block'
             onClick={(e) => handleToggleComplete(e)}>
-            <MDBIcon
-              icon='chevron-right'
-              className='mdb-color lighten-3'
-              type='button'
-            />
+            <MDBIcon icon='check' className='ml-auto  lighten-3 mdb-coalor ' />
           </MDBBtn>
           <MDBCardBody cascade>
-            <MDBCardTitle>{props.list.title}</MDBCardTitle>
+            <MDBCardTitle className='d-inline-block'>
+              {props.list.title}
+            </MDBCardTitle>
             <hr />
             <MDBCardText>
               This list was created {data} and has {NumbersOfItems} items
@@ -122,7 +120,7 @@ const Lists = (props) => {
             </ul>
           </div>
         </MDBCard>
-      </>
+      </React.Fragment>
 
       // </div>
     );

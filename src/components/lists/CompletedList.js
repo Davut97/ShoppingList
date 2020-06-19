@@ -4,27 +4,24 @@ import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
 import CompletedItem from './CompletedItem';
 import {Redirect} from 'react-router-dom';
-
+import {MDBContainer, MDBCardTitle} from 'mdbreact';
 const CompletedList = (props) => {
   // console.log(props.list); // to see match.params.id
   const {items, auth} = props;
   // console.log(props);
 
   const id = props.match.params.id;
-
+  const title = props.list ? props.list.title : null;
   if (auth.uid) {
     return (
-      <div>
-        <span>
-          {props.list.title}-{id}
-        </span>
-        <div>
-          {items &&
-            items.map((item) => (
-              <CompletedItem key={item.id} item={item} id={id} />
-            ))}
-        </div>
-      </div>
+      <MDBContainer margin='auto' marginTop='250rem'>
+        <MDBCardTitle>Items inside {title} list:</MDBCardTitle>
+
+        {items &&
+          items.map((item) => (
+            <CompletedItem key={item.id} item={item} title={title} id={id} />
+          ))}
+      </MDBContainer>
     );
   } else {
     return <Redirect to='/login' />;

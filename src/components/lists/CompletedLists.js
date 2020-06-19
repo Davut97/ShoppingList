@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import Lists from './Lists';
 import {Link, Redirect} from 'react-router-dom';
-import {MDBBtn, MDBCol, MDBRow, MDBIcon, MDBContainer} from 'mdbreact';
+import {MDBCol, MDBRow, MDBContainer} from 'mdbreact';
 
 const CompletedLists = ({CompletedLists, auth}) => {
   // console.log(CompletedLists);

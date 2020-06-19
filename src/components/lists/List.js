@@ -5,24 +5,18 @@ import {compose} from 'redux';
 import {addItem, deleteItem, editItem} from '../../store/actions/listActions';
 import Items from './Items';
 import {Redirect} from 'react-router-dom';
-import {
-  MDBBtn,
-  MDBCol,
-  MDBRow,
-  MDBIcon,
-  MDBContainer,
-  MDBInput,
-} from 'mdbreact';
+import {MDBBtn, MDBInput} from 'mdbreact';
 
 const List = (props) => {
   // console.log(props.list); // to see match.params.id
   const {items, auth} = props;
   // console.log(props);
-
+  console.log(props);
   const id = props.match.params.id;
   const [name, setName] = useState('');
   const [amount, setAmount] = useState(0);
   const [fetchedItems, setFetchedItems] = useState(items);
+  const [editItemIsOpen, setEditItemIsOpen] = useState(false);
   const handleChangeName = (event) => {
     setName(event.target.value);
   };
@@ -35,7 +29,7 @@ const List = (props) => {
     props.addItem({name: name, amount: amount, id: id});
   };
   const handleDeleteItem = (event, itemId, itemName, itemAmount) => {
-    // console.log(listId,itemId,itemName,itemAmount)
+    console.log(itemId, itemName, itemAmount);
 
     props.deleteItem({
       listId: id,
@@ -45,25 +39,29 @@ const List = (props) => {
     });
   };
   const handleEditItem = (listId, itemId, itemName, itemAmount) => {
-    // console.log(listId, itemId, itemName, itemAmount);
+    console.log(listId, itemId, itemName, itemAmount);
     props.editItem({
       listId: id,
       itemId: itemId,
       itemName: itemName,
       itemAmount: itemAmount,
     });
-    alert('Item Edited');
+  };
+  const handleEditIsOpen = (e) => {
+    e.preventDefault();
+    setEditItemIsOpen(!editItemIsOpen);
+    // console.log(editItemIsOpen);
   };
   useEffect(() => {
     setFetchedItems(items);
   }, [items]);
-
+  const title = props.list ? props.list.title : null;
   if (auth.uid) {
     return (
       <div>
         <div>
           <form style={{width: '400px', margin: 'auto', marginTop: '60px'}}>
-            <h5>Add item</h5>
+            <h5>Add item to {title} list</h5>
             <div style={{width: '400px', margin: 'auto', marginTop: '60px'}}>
               <MDBInput
                 label='Item Name'
@@ -92,6 +90,8 @@ const List = (props) => {
                 id={id}
                 handleClick={handleDeleteItem}
                 handleEdit={handleEditItem}
+                editButton={editItemIsOpen}
+                handleEditIcon={handleEditIsOpen}
               />
             ))}
         </div>

@@ -13,7 +13,6 @@ import {
 
 const Dashboard = ({lists, auth}) => {
   // console.log(lists);
-  const [isOPen, setIsOpen] = useState(false);
 
   const [AllList, setAllList] = useState(lists);
   function compareTitleAsc(a, b) {
@@ -134,5 +133,10 @@ const mapStateToProps = (state) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect(() => ['lists'])
+  firestoreConnect(() => [
+    {
+      collection: 'lists',
+      orderBy: 'createdAt',
+    },
+  ])
 )(Dashboard);

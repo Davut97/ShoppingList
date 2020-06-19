@@ -18,9 +18,9 @@ const AllLists = (props) => {
   if (!auth.uid) return <Redirect to='/signin' />;
   const HandleIsOpen = (e) => {
     e.preventDefault();
-    console.log(isOPen);
+    // console.log(isOPen);
     setIsOpen(!isOPen);
-    console.log(isOPen);
+    // console.log(isOPen);
   };
 
   return (
@@ -36,7 +36,7 @@ const AllLists = (props) => {
           lists.map((list) => {
             // console.log(list);
             return (
-              <MDBCol size='4'>
+              <MDBCol key={list.id} size='4'>
                 <Link to={`list/${list.id}`} key={list.id}>
                   <Lists key={list.id} list={list} isOpen={isOPen} />
                 </Link>
