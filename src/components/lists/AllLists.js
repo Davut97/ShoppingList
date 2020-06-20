@@ -26,7 +26,7 @@ const AllLists = (props) => {
   return (
     <MDBContainer>
       <div>
-        <MDBBtn type='button' onClick={(e) => HandleIsOpen(e)}>
+        <MDBBtn type='button' onClick={(e) => HandleIsOpen(e)}  style={{display: "block", width: "100px", margin: "0 auto", marginTop: "-52px", marginLeft: "150px"}}>
           <MDBIcon icon='sync-alt' />
         </MDBBtn>
       </div>

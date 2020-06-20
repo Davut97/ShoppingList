@@ -53,7 +53,7 @@ const Lists = (props) => {
       <MDBContainer>
         <MDBRow>
           <MDBCol size='12'>
-            <MDBCard className='default-color text-center z-depth-2'>
+            <MDBCard className='default-color text-center z-depth-2' style={{marginTop: "20px",}}>
               <MDBCardBody>
                 <p className='white-text mb-0'>{props.list.title}</p>
               </MDBCardBody>
@@ -68,9 +68,12 @@ const Lists = (props) => {
                 </p>
                 <br></br>
                 <p className='white-text mb-0' style={{borderTop: '1px'}}>
-                  05/10/2015
+                <MDBIcon color='lighten-3' onClick={(e) => deleteList(e)}>
+                Delete List
+                </MDBIcon>
                 </p>
               </MDBCardBody>
+
             </MDBCard>
           </MDBCol>
           <MDBCol size='12'>
@@ -85,7 +88,7 @@ const Lists = (props) => {
       // <div style= {{ display: 'flex', justifyContent: 'center' }} class="text-center">
 
       <React.Fragment>
-        <MDBCard cascade>
+        <MDBCard cascade style={{margin: "10px", marginTop: "40px"}}>
           <MDBCardImage
             cascade
             className='img-fluid d-inline-block'

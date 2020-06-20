@@ -82,18 +82,20 @@ const List = (props) => {
             </div>
           </form>
 
-          {fetchedItems &&
-            fetchedItems.map((item) => (
-              <Items
-                key={item.id}
-                item={item}
-                id={id}
-                handleClick={handleDeleteItem}
-                handleEdit={handleEditItem}
-                editButton={editItemIsOpen}
-                handleEditIcon={handleEditIsOpen}
-              />
-            ))}
+            <div className="my-12 mx-12" style={{marginTop:"30px"}}>
+              {fetchedItems &&
+                fetchedItems.map((item) => (
+                  <Items
+                    key={item.id}
+                    item={item}
+                    id={id}
+                    handleClick={handleDeleteItem}
+                    handleEdit={handleEditItem}
+                    editButton={editItemIsOpen}
+                    handleEditIcon={handleEditIsOpen}
+                  />
+                ))}
+            </div>
         </div>
       </div>
     );

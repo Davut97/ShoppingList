@@ -4,7 +4,7 @@ import {firestoreConnect} from 'react-redux-firebase';
 import {compose} from 'redux';
 import CompletedItem from './CompletedItem';
 import {Redirect} from 'react-router-dom';
-import {MDBContainer, MDBCardTitle} from 'mdbreact';
+import {MDBContainer, MDBCardTitle, MDBRow, MDBCol} from 'mdbreact';
 const CompletedList = (props) => {
   // console.log(props.list); // to see match.params.id
   const {items, auth} = props;
@@ -14,13 +14,14 @@ const CompletedList = (props) => {
   const title = props.list ? props.list.title : null;
   if (auth.uid) {
     return (
-      <MDBContainer margin='auto' marginTop='250rem'>
-        <MDBCardTitle>Items inside {title} list:</MDBCardTitle>
-
+      <MDBContainer className="my-12 mx-12" style={{marginTop:"30px"}}>
+     
+        <MDBCardTitle style={{ width: "22rem" }}>Items inside {title} list:</MDBCardTitle>
         {items &&
           items.map((item) => (
             <CompletedItem key={item.id} item={item} title={title} id={id} />
           ))}
+          
       </MDBContainer>
     );
   } else {

@@ -69,52 +69,52 @@ const CreatList = (props) => {
 
           <MDBDropdownMenu basic>
             <MDBDropdownItem
-              value='https://i.ibb.co/BVY6Zmk/Detergent.jpg'
+              value='https://i.ibb.co/kXcJN4s/Detergent.jpg'
               onClick={handleSelect}>
               Detergents
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/p3m13J6/Fruits.jpg'
+              value='https://i.ibb.co/C70x7Lp/Fruits.jpg'
               onClick={handleSelect}>
               Fruits
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/ykhsMVk/Gifts.jpg'
+              value='https://i.ibb.co/zSMzf3x/Gifts.jpg'
               onClick={handleSelect}>
               Gifts
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/NTw5Yc6/Meet.jpg'
+              value='https://i.ibb.co/JBD09dc/Meet.jpg'
               onClick={handleSelect}>
               Meat
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/z6y3f08/Men-039-s-Wear.jpg'
+              value='https://i.ibb.co/fDnjk5B/Men-s-Wear.jpg'
               onClick={handleSelect}>
               Men's Wear
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/wg01kTt/Spices.jpg'
+              value='https://i.ibb.co/BB9cy6y/Spices.jpg'
               onClick={handleSelect}>
               Spices
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/GQChjWg/Stationary.jpg'
+              value='https://i.ibb.co/xfNVcjh/Stationary.jpg'
               onClick={handleSelect}>
               Stationary
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/2yKYMGQ/Sweets.jpg'
+              value='https://i.ibb.co/PjYW59G/Sweets.jpg'
               onClick={handleSelect}>
               Sweets
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/FW4Q2pq/Vegetables.jpg'
+              value='https://i.ibb.co/wpjqJ8L/Vegetables.jpg'
               onClick={handleSelect}>
               Vegetables
             </MDBDropdownItem>
             <MDBDropdownItem
-              value='https://i.ibb.co/wN3Jbfm/Others.jpg'
+              value='https://i.ibb.co/mHbf8ZG/Others.jpg'
               onClick={handleSelect}>
               Others
             </MDBDropdownItem>

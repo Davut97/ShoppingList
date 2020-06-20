@@ -11,7 +11,7 @@ const CompletedLists = ({CompletedLists, auth}) => {
   if (!auth.uid) return <Redirect to='/login' />;
 
   return (
-    <MDBContainer>
+    <MDBContainer style={{marginTop: "70px",}}>
       <MDBRow>
         {CompletedLists &&
           CompletedLists.map((list) => {
